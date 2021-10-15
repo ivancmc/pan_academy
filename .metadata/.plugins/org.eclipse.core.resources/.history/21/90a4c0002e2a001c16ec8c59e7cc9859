@@ -1,0 +1,18 @@
+package com.classes;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.classes.tables.Products;
+
+@SpringBootApplication
+public class AppClassesApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AppClassesApplication.class, args);
+	}
+
+	Products produto1 = new Products();
+	produto1.setDescription("Luva");
+	
+}

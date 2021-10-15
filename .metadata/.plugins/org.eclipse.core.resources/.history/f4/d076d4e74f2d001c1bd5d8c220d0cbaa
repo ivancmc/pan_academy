@@ -1,0 +1,17 @@
+package datas;
+
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class DataFormatada {
+
+	public static void main(String[] args) {
+		Calendar c = Calendar.getInstance();
+		Date data = c.getTime();
+		
+		DateFormat f = DateFormat.getDateInstance(DateFormat.FULL);
+		System.out.println("Data brasileira: " + f.format(data));
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.classes.tables;
+
+public class Products {
+	Long id;
+	String description;
+	double value;
+}

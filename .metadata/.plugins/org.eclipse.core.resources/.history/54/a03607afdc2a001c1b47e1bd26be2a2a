@@ -1,0 +1,29 @@
+package com.crud.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.crud.model.MaintenanceModel;
+import com.crud.repository.MaintenanceRepo;
+
+@RestController
+public class MaintenanceController {
+
+	@Autowired
+	private MaintenanceRepo repository;
+	
+	@GetMapping
+	public List<MaintenanceModel> getAll() {
+		return repository.findAll();
+	}
+	
+	@PostMapping("/inserir")
+	public MaintenanceModel create(@RequestBody MaintenanceModel model) {
+		return model;
+	}
+}

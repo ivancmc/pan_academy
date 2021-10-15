@@ -1,0 +1,30 @@
+package model;
+
+import java.util.Calendar;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
+public class Tarefas {
+
+	@GeneratedValue
+	@Column
+	@Id
+	private Long id;
+	
+	@Column(nullable = false)
+	private String tarefa;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar dataNascimentoCalendar;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private LocalDate date;
+}

@@ -1,0 +1,20 @@
+INDEX VERSION 1.131+/home/ivan/Documents/workspace-sts-3.9.11.RELEASE/.metadata/.plugins/org.eclipse.jdt.core
+2095131285.index
+3643603723.index
+2479145269.index
+1339028735.index
+55864321.index
+1308814663.index
+1361594783.index
+1000368927.index
+1912058728.index
+396371119.index
+87000789.index
+2211848632.index
+3583099703.index
+85728709.index
+735971878.index
+1650490166.index
+4226541728.index
+2422196250.index
+3317125070.index

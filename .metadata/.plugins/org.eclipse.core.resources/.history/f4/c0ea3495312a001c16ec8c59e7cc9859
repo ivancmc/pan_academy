@@ -1,0 +1,18 @@
+package com.classes.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class Controller {
+
+	@GetMapping("/retornoString")
+	public String method() {
+		return "hello";
+	}
+	
+	@GetMapping("/retornoNumero")
+	public int age() {
+		return 1;
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;dataNascimentoCalendar&apos; in &apos;model.Tarefas&apos; to &apos;createdAt&apos;&#x0A;- Original project: &apos;app.datas&apos;&#x0A;- Original element: &apos;model.Tarefas.dataNascimentoCalendar&apos;&#x0A;- Renamed element: &apos;model.Tarefas.createdAt&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;dataNascimentoCalendar&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src\/main\/java&lt;model{Tarefas.java[Tarefas^dataNascimentoCalendar" name="createdAt" references="true" setter="false" stamp="1634259868832" textual="false" version="1.0"/>
+</session>
