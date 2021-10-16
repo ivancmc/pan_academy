@@ -21,7 +21,7 @@
 		<item key="create_unimplemented" value="true"/>
 	</section>
 	<section name="SourceActionDialog.methods">
-		<item key="VisibilityModifier" value="4"/>
+		<item key="VisibilityModifier" value="1"/>
 		<item key="FinalModifier" value="false"/>
 		<item key="SynchronizedModifier" value="false"/>
 		<item key="Comments" value="false"/>
@@ -34,7 +34,11 @@
 		<item key="DIALOG_X_ORIGIN" value="412"/>
 		<item key="DIALOG_Y_ORIGIN" value="0"/>
 		<item key="DIALOG_WIDTH" value="548"/>
-		<item key="DIALOG_HEIGHT" value="715"/>
+		<item key="DIALOG_HEIGHT" value="686"/>
 		<item key="DIALOG_FONT_NAME" value="1|Noto Sans|9.0|0|GTK|1|"/>
+	</section>
+	<section name="RenameInformationPopup">
+	</section>
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
 	</section>
 </section>
