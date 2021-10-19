@@ -1,9 +1,0 @@
-package br.com.pacote;
-
-public class Pessoa {
-	private String nome = "Ivan";
-	
-	private String pegarNome() {
-		
-	}
-}

@@ -1,7 +1,0 @@
-package com.classes.tables;
-
-public class Products {
-	int id;
-	String description;
-	double value;
-}
