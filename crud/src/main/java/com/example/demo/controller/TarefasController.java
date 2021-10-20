@@ -55,5 +55,21 @@ public class TarefasController {
 	public ResponseEntity<List<TarefasModel>> getByTarefa(@PathVariable String tarefa) {
 		return ResponseEntity.ok(tarefasRepository.findAllByTarefaContainingIgnoreCase(tarefa));
 	}
+	
+	@GetMapping("/listar/and/{tarefa}/{id}")
+	public ResponseEntity<List<TarefasModel>> getByTarefaAndId(@PathVariable String tarefa, @PathVariable Long id) {
+		return ResponseEntity.ok(tarefasRepository.findByTarefaAndId(tarefa, id));
+	}
+	
+	@GetMapping("/listar/or/{tarefa}/{id}")
+	public ResponseEntity<List<TarefasModel>> getByTarefaOrId(@PathVariable String tarefa, @PathVariable Long id) {
+		return ResponseEntity.ok(tarefasRepository.findByTarefaOrId(tarefa, id));
+	}
+	
+	@GetMapping("/listar/todas_tarefas")
+	public ResponseEntity<List<TarefasModel>> procurarTarefas() {
+		return ResponseEntity.ok(tarefasRepository.procuraTodos());
+	}
+	
 
 }
