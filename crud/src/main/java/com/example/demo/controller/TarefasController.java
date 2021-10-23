@@ -71,5 +71,11 @@ public class TarefasController {
 		return ResponseEntity.ok(tarefasRepository.procuraTodos());
 	}
 	
+	@PutMapping("/atualizar/tarefa/{id}") 
+	public TarefasModel atualizar(@PathVariable Long id, @RequestBody TarefasModel model) {
+		model.setId(id);
+		tarefasRepository.save(model);
+		return model;
+	}
 
 }
