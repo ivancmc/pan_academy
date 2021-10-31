@@ -27,13 +27,5 @@ public class Leitura {
 			System.out.println(chave + ": " + jsonzinho.get(chave));
 		}
 
-//		String nominho = (String) jsonzinho.get("Nome");
-//		String sobrenominho = (String) jsonzinho.get("Sobrenome");
-//		long idade = (long) jsonzinho.get("Idade");
-//
-//		System.out.println(nominho);
-//		System.out.println(sobrenominho);
-//		System.out.println(idade);
-
 	}
 }
