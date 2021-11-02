@@ -17,7 +17,7 @@ public class Conexao {
 		String dataBasePrefix = null;
 		String dataBasePort = null;
 		
-		hostName = "database-1.cjrriz7oygwx.us-west-2.rds.amazonaws.com";
+		hostName = "database-1";
 		userName = "admin";
 		password = "12345678";
 		jdbcDriver = "com.mysql.cj.jdbc.Driver";
