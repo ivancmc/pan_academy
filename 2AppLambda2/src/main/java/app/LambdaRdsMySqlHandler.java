@@ -20,7 +20,7 @@ public class LambdaRdsMySqlHandler implements RequestHandler<Object, String> {
 			String dbName = "dblambda";
 
 			Connection conn = DriverManager
-					.getConnection("jdbc:mysql://" + "database-1.cjrriz7oygwx.us-west-2.rds.amazonaws.com" + ":" + 3306
+					.getConnection("jdbc:mysql://" + "database-1" + ":" + 3306
 							+ "/" + dbName + "?useSSL=false", username, password);
 
 			Statement stmt = conn.createStatement();
