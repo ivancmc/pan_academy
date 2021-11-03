@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+// implementa maneiras de transformar JSON em objetos Java 
 import org.json.*;
 
 public class Programa {
@@ -16,7 +17,7 @@ public class Programa {
 		// JSONExampleObject1();
 		// JSONExampleObject2();
 		// JSONExampleObject3();
-		JSONExamplWriter();
+		// JSONExamplWriter();
 		// XMLToExampleConversion();
 		// XMLFromExampleConversion();
 		// CookieToExampleConversion();
@@ -31,72 +32,68 @@ public class Programa {
 	
 	// Criando um documento JSON
 
+	// Cria um JSONObject a partir de uma String contendo um array usando JSONArray
 	private static void JSONExampleArray1() {
-		// We create a JSONObject from a String containing an array using JSONArray
-		// Firstly, we declare an Array in a String
-
+		// Declara um array em uma String
 		String arrayStr = "[" + "true," + "false," + "\"true\"," + "\"false\"," + "\"hello\"," + "23.45e-4,"
 				+ "\"23.45\"," + "42," + "\"43\"," + "[" + "\"world\"" + "]," + "{" + "\"key1\":\"value1\","
 				+ "\"key2\":\"value2\"," + "\"key3\":\"value3\"," + "\"key4\":\"value4\"" + "}," + "0," + "\"-1\""
 				+ "]";
 
-		// configura o arrayStr como JSONArray passando pelo construtor
-
+		// configura o arrayStr como JSONArray passando pelo construtor e imprime
 		JSONArray array = new JSONArray(arrayStr);
 		System.out.println("Values array: " + array);
 
-		// Cria um JSONArray de chaves
-
+		// Cria um JSONArray de chaves e imprime
 		JSONArray list = listNumberArray(array.length());
 		System.out.println("Label Array: " + list.toString());
-		// Faz o mapeamento de chave > valor tranformando em JSONObject
+		
+		// Faz o mapeamento de chave e valor tranformando em JSONObject e imprime
 		JSONObject object = array.toJSONObject(list);
 		System.out.println("Final JSONOBject: " + object);
 	}
 
 	// Esse metodo cria um JSONArray de chaves
-
 	private static JSONArray listNumberArray(int max) {
+		// instancia um JSONArray
 		JSONArray res = new JSONArray();
+		// Percorre os indices de 0 até que i seja menor do que o parametro passado
 		for (int i = 0; i < max; i++) {
-			// O valor dos labels devem ser String pra funcionar
+			// Adiciona o indice como String no JSONArray
 			res.put(String.valueOf(i));
 		}
+		// Retorna um JSONArray contendo os indices como String
 		return res;
 	}
 
+	// Cria um JSONObject a partir de um JSONArray de valores
 	private static void JSONExampleArray2() {
 
-		// Cria um JSONArray vazio
-
+		// instancia um JSONArray
 		JSONArray array = new JSONArray();
 
-		// Adiciona valores com o .put()
-
+		// Adiciona valores de diversos tipos
 		array.put("value");
 		array.put(5);
 		array.put(-23.45e67);
 		array.put(true);
 
-		// Converte em JSONObject provendo um array de chaves
-
+		// Cria um JSONArray de chaves
 		JSONArray list = listNumberArray(array.length());
+		// Faz o mapeamento de chave (indice) e valor e imprime
 		JSONObject object = array.toJSONObject(list);
 		System.out.println("Final JSONOBject: " + object);
 	}
 
+	// Cria um JSONObject a partir de um JSONStringer com chaves e valores
 	private static void JSONExampleStringer() {
-
 		// instancia o JSONStringer
-
 		JSONStringer jsonStringer = new JSONStringer();
 
 		// Inicia o processo de adicionar elementos com o .object()
-
 		jsonStringer.object();
 
-		// Adiciona elementos como chava > valor
-
+		// Adiciona elementos de diversos tipos como chave e valor
 		jsonStringer.key("trueValue").value(true);
 		jsonStringer.key("falseValue").value(false);
 		jsonStringer.key("nullValue").value(null);
@@ -105,79 +102,73 @@ public class Programa {
 		jsonStringer.key("intValue").value(42);
 		jsonStringer.key("doubleValue").value(-23.45e67);
 
-		// Encerra o procedimento com .ednObject
-
+		// Encerra o processo de adicao com .endObject
 		jsonStringer.endObject();
 
-		// Com JSONStringer, converte em JSONObject gerando uma String e passando pro
-		// construtor do JSONObject
-
+		// Transforma o jsonStringer numa String
 		String str = jsonStringer.toString();
+		// instancia um JSONObject passando uma string pelo construtor e imprime
 		JSONObject jsonObject = new JSONObject(str);
-
 		System.out.println("Final JSONOBject: " + jsonObject);
 	}
 
+	// Cria um JSONObject a partir de uma String em formato de JSON
 	private static void JSONExampleObject1() {
 
-		// Cria um JSONObject a partir de uma String com o construtor da classe
-
+		// Cria uma string em formato de JSON
 		String string = "{\"0\":\"value\",\"1\":5,\"2\":-2.345E68,\"3\":true}";
+		// Cria um JSONObject a partir de uma String com o construtor da classe e imprime
 		JSONObject example = new JSONObject(string);
 		System.out.println("Final JSONObject: " + example);
 
 	}
 
+	// Cria um JSONObject diretamente
 	private static void JSONExampleObject2() {
 
-		// Tambem pode criar um JSONObject diretamente
-
+		// instancia um JSONObject
 		JSONObject example = new JSONObject();
 
-		// Adiciona o par chave e valor
+		// Adiciona pares de chave (string) e valor (diversos tipos)
 		example.put("key", "value");
-
 		example.put("key2", 5);
 		example.put("key3", -23.45e67);
 		example.put("trueValue", true);
 
-		// Porem nao pode adicionar valor null
-
+		// mostra que nao pode adicionar valor null
 		// example.put("nullValue", null); //Isso nao eh possivel
 
+		// imprime
 		System.out.println("Final JSONOBject: " + example);
 	}
 
+	// Cria um JSONObject com um Map
 	private static void JSONExampleObject3() {
 
-		// Tambem pode criar um JSONObject com um Map
-		// A chave tem que ser String e o valor pode ser qualquer coisa
-
+		// instancia um Map de String (chave) e Double (valor)
 		Map<String, Double> map = new HashMap<String, Double>();
 
+		//Adiciona os pares
 		map.put("key1", 1.0);
 		map.put("key2", -23.45e67);
 
-		// Cria o JSONObject passando o map no construtor
-
+		// Cria o JSONObject passando o map no construtor e imprime
 		JSONObject example = new JSONObject(map);
 		System.out.println("Final JSONOBject: " + example);
 	}
 
+	// Cria um JSONWriter com StringBuilder
 	private static void JSONExamplWriter() {
 
-		// This method works in a very similar way to Object and Stringer in the
-		// construction of the JSON.
-		// The difference is that it needs a Java object called "Appendable" like
-		// StringBuilder
-
+		// instancia um StringBuilder
 		StringBuilder write = new StringBuilder();
+		// instancia um JSONWriter a partir do StringBuilder vazio
 		JSONWriter jsonWriter = new JSONWriter(write);
 
-		// We behave now the same way as Stringer
-
+		// inicia o processo de adicao semelhante ao JSONStringer
 		jsonWriter.object();
 
+		// adiciona os pares de chave e valor
 		jsonWriter.key("trueValue").value(true);
 		jsonWriter.key("falseValue").value(false);
 		jsonWriter.key("nullValue").value(null);
@@ -186,26 +177,21 @@ public class Programa {
 		jsonWriter.key("intValue").value(42);
 		jsonWriter.key("doubleValue").value(-23.45e67);
 
+		// encerra o processo de adicao
 		jsonWriter.endObject();
 
-		// The resoult should be in the "write" object
-
+		// imprime o StringBuilder que foi modificado pelo JSONWriter
 		System.out.println("JSON: " + write.toString());
-
-		// The difference is that we don't get a JSONObject in this one.
-
 	}
 
+	// Cria um JSONObject e um JSONArray a partir de um JSONTokener
 	private static void JSONExampleTokener() {
 
-		// A partir de una String podemos crear un JSONTokener, que lo podemos usar
-		// alternativamente para JSONArray,JSONObject
-
+		// cria uma string sem formato de json
 		String string = "this is not a valid JSON string";
 		JSONTokener token = new JSONTokener(string);
 
-		// Now you can use the token in JSONObject and Array the same way as a String
-
+		// Passa o token para o JSONObject e para o JSONArray
 		JSONObject object = new JSONObject(token);
 		JSONArray array = new JSONArray(token);
 
@@ -213,173 +199,159 @@ public class Programa {
 	
 	// Conversao para JSONArray
 
+	// Cria um JSONArray a partir de uma String em formato de JSON
 	private static void JSONObjectToArray() {
-		// We start with a JSONObject
-
+		// cria uma string em formato de json
 		String string = "{\"0\":\"value\",\"1\":5,\"2\":-2.345E68,\"3\":true}";
 
+		// instancia um JSONObject a partir da string
 		JSONObject example = new JSONObject(string);
 
-		// We need a list of key strings like the reverse operation
-
+		// cria um array de chaves (indice)
 		JSONArray keyStrings = listNumberArray(example.length());
 
-		// Then we convert to the Array using both elelements
-
+		// obtem um array somente com os valores e imprime
 		JSONArray array = example.toJSONArray(keyStrings);
-
 		System.out.println("Final JSONArray: " + array);
 	}
 	
 	// Conversao de XML
 
+	// Cria um XML a partir de uma String em formato de JSON
 	private static void XMLToExampleConversion() {
 
-		// We start with a JSONObject
-
+		// cria uma string em formato de json
 		String string = "{\"0\":\"value\",\"1\":5,\"2\":-2.345E68,\"3\":true}";
+		
+		// instancia um JSONObject a partir da string
 		JSONObject example = new JSONObject(string);
 
-		// We obtain a String with XML format with toString()
-
+		// obtem uma string com formato de XML atraves do JSONObject e imprime
 		String output = XML.toString(example);
 		System.out.println("Final XML: " + output);
 	}
 
+	// Cria um JSONObject a partir de uma string em formato de XML
 	private static void XMLFromExampleConversion() {
 
-		// We start with a string with the XML format
-
+		// cria uma string em formato de XML
 		String string = "<0>value</0><1>5</1><2>-2.345E+68</2><3>true</3>";
 
-		// We obtain a JSONObject with toJSONOBject()
-
+		// instancia um JSONObject a partir da string e imprime
 		JSONObject output = XML.toJSONObject(string);
-
 		System.out.println("Final JSONObject: " + output);
 	}
 
 	// Conversao de Cookie
 	
+	// Cria uma string no formato de Cookie a partir de uma String em formato de JSON
 	private static void CookieToExampleConversion() {
 
-		// We start with a JSONObject
-		// The JSONOBject needs to entries that gives the cookie a name and gives the
-		// field "name" a name too.
-		// The Cokkie format doesn't support booleans
-
+		// cria uma string em formato de json
 		String string = "{\"name\":\"Cookie-Name\",\"value\":\"name\",\"1\":5,\"2\":-2.345E68,\"3\":'true'}";
+		
+		// instancia um JSONObject a partir da string
 		JSONObject example = new JSONObject(string);
 
-		// We obtain a String with Cookie format with toString()
-
+		// obtem uma String com formato de Cookie e imprime
 		String output = Cookie.toString(example);
 		System.out.println("Final Cookie: " + output);
 	}
 
+	// Cria um JSONObject a partir de uma string em formato de Cookie
 	private static void CookieFromExampleConversion() {
 
-		// We start with a string with the Cookie format
-
+		// cria uma string em formato de Cookie
 		String string = "Cookie-Name=name;1=5;2=-2.345E%2b68;3=true";
 
-		// We obtain a JSONObject with toJSONOBject()
-
+		// converte a string em formato de Cookie e imprime
 		JSONObject output = Cookie.toJSONObject(string);
 		System.out.println("Final JSONObject: " + output);
 	}
 
 	// Conversao de HTTP
 	
+	// Cria uma string em formato HTTP a partir de uma string em formato de JSON
 	private static void HTTPToExampleConversion() {
 
-		// We start with a JSONObject
-		// The JSONObject must have the minimun header for a HTTP request or header
-
+		// cria uma string em formato de JSON
 		String string = "{\"Method\":\"POST\",\"Request-URI\":'/',\"HTTP-Version\":'HTTP/1.1',\"Value1\":true,\"Value2\":2,\"Value3\":-2.345E68}";
 
+		// instancia um JSONObject a partir da string
 		JSONObject example = new JSONObject(string);
 
-		// We obtain a String with HTTP format with toString()
-
+		// obtem uma string no formato HTTP e imprime
 		String output = HTTP.toString(example);
 		System.out.println("Final HTTP: " + output);
 	}
 
+	// Cria um JSONObject a partir de uma string em formato HTTP
 	private static void HTTPFromExampleConversion() {
 
-		// We start with a string with the HTTP format
-
+		// cria uma string em formato HTTP
 		String string = "Final HTTP: POST '/' HTTP/1.1 Value3: -2.345E+68 Value1: true Value2: 2";
 
-		// We obtain a JSONObject with toJSONOBject()
-
+		// converte a string HTTP em JSONObject e imprime
 		JSONObject output = HTTP.toJSONObject(string);
 		System.out.println("Final JSONObject: " + output);
 	}
 
 	// Conversao de CDL
 
+	// Cria uma string em formato CDL a partir de 2 strings em formato JSON
 	private static void CDLToExampleConversion() {
 
-		// We start with some JSONObjects with the same values in the keys but different
-		// values in the "values"
-
+		// cria duas strings em formato de JSON e converte para JSONObject
 		String string = "{\"0\":\"value\",\"1\":5,\"2\":-2.345E68,\"3\":true}";
 		JSONObject example = new JSONObject(string);
-
 		String string2 = "{\"0\":\"value2\",\"1\":6,\"2\":-8.345E68,\"3\":false}";
 		JSONObject example2 = new JSONObject(string2);
 
-		// We need now a JSONArray with those JSONObjects
-
+		// Cria um JSONArray a partir dos dois objetos JSON
 		JSONArray array = new JSONArray();
 		array.put(example);
 		array.put(example2);
 
-		// We obtain a String with XML format with toString()
-
+		// obtem uma string em formato CDL a partir do array de JSON e imprime
 		String output = CDL.toString(array);
 		System.out.println("Final CDL: \r\n" + output);
 	}
 
+	// Cria um JSONArray a partir de uma string em formato CDL
 	private static void CDLFromExampleConversion() {
 
-		// We start wtih a String with the CDL format
-
+		// cria uma string em formato CDL
 		String string = "0,1,2,3\n" + "value,5,-2.345E+68,true\n" + "value2,6,-8.345E+68,false";
 
-		// We obtain a JSONArray with toJSONOBject()
-
+		// instancia um JSONArray atraves da string e imprime
 		JSONArray output = CDL.toJSONArray(string);
 		System.out.println("Final JSONArray: " + output);
 	}
 
 	// Conversao de properties
 
+	// Retorna um Properties a partir de uma string em formato JSON
 	private static Properties PropertyToExampleConversion() {
 
-		// We start with a JSONObject
-
+		// cria uma string em formato JSON e converte em JSONObject
 		String string = "{\"0\":\"value\",\"1\":5,\"2\":-2.345E68,\"3\":true}";
 		JSONObject example = new JSONObject(string);
 
-		// We obtain a String with Properties format with toString()
-
+		// Obtem uma string em formato Properties a partir do JSON e imprime
 		Properties output = Property.toProperties(example);
 		System.out.println("Final Properties: " + output);
 
+		// retorna o objeto Properties
 		return output;
 	}
 
+	// Cria um JSONObject a partir de um Properties
 	private static void PropertyFromExampleConversion() {
 
-		//We start with a Properties object
-
+		// recebe um objeto Properties obtido no metodo anterior
 		Properties input = PropertyToExampleConversion();
 
-		//We obtain a JSONObject with toJSONOBject()
-
+		//converte o Properties em JSON e imprime
 		JSONObject output = Property.toJSONObject(input);
 		System.out.println("Final JSONObject: " + output);
 	}
