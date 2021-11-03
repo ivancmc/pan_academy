@@ -1,3 +1,11 @@
+# Função lambda: ivanTerceiraFuncao (região: Norte da Califórnia)
+
+# Teste: message
+{
+  "id": 1,
+  "message": "Teste funcionou com exito!"
+}
+
 # aws-lambda-java8-rds-mysql
 
 # Overview
